@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['logado'])){
+    header('location:login.php');die;
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,6 +13,8 @@
  <link href="bootstrap/css/bootstrap.css" rel="stylesheet">  
     </head>
     <body>
+<?php require "inc/menuAdm.php"; ?>  
+    
 <form action="" method="post">
     
 <fieldset>
