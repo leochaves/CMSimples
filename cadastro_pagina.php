@@ -10,7 +10,8 @@ if(!isset($_SESSION['logado'])){
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro</title>
- <link href="bootstrap/css/bootstrap.css" rel="stylesheet">  
+ <link href="bootstrap/css/bootstrap.css" rel="stylesheet"> 
+ <script src="inc/ckeditor/config.js"></script>
  <script src="inc/ckeditor/ckeditor.js"></script>
 
     </head>
