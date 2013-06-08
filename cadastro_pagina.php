@@ -11,6 +11,8 @@ if(!isset($_SESSION['logado'])){
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro</title>
  <link href="bootstrap/css/bootstrap.css" rel="stylesheet">  
+ <script src="inc/ckeditor/ckeditor.js"></script>
+
     </head>
     <body>
 <?php require "inc/menuAdm.php"; ?>  
@@ -32,7 +34,7 @@ if(!isset($_SESSION['logado'])){
 <input name="keys" type="text" placeholder="Digite algo...">
 
 <label>Conteúdo</label>
-<textarea cols="300" rows="10" name="conteudo" placeholder="Digite algo...">
+<textarea class="ckeditor" cols="300" rows="10" name="conteudo" placeholder="Digite algo...">
 </textarea>
 <br />
 <button type="submit" class="btn btn-success btn-large">Enviar</button>
