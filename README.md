@@ -1,6 +1,6 @@
 CMSimples
 =========
-Aff
+
 Gerenciador de conteúdo desenvolvido durante a aula de PHP Essentials - PHPRIME
 
 Exercícios feitos em sala 01/06/13
