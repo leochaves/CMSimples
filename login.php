@@ -5,9 +5,9 @@ if(isset($_POST['email'],$_POST['senha'])){
     $senha = $_POST['senha'];
     
     $emailCerto = 'admin@admin.com';
-    $senhaCerta = 'admin123';
+    $senhaCerta = '0192023a7bbd73250516f069df18b500'; 
     
-    if(($email == $emailCerto) AND ($senha == $senhaCerta)){
+    if(($email == $emailCerto) AND (md5($senha) == $senhaCerta)){
         // echo "Só sucesso";
         session_start();
         $_SESSION['logado'] = true;
@@ -66,7 +66,7 @@ Lembre-se de mim
 //        echo '';
 //    }    
     echo (isset($msg)) ? $msg:''; 
-    
+echo (isset($_GET['msg'])) ? $_GET['msg']:''; 
     ?>
     </body>
 </html>
