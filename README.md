@@ -64,8 +64,35 @@ campos: email,senha,nome
 where email = '$email' AND senha = '$senha'"
 se retornar(encontrar o usuário/senha) loga, senão não loga.
 
+3 - Manter o usuário logado com o uso dos cookies.
+
+4 - Criar uma listagem de páginas e dar acesso apenas para usuários logados. Nome do arquivo: ***lista_paginas.php***
 
 
+<table>
+<thead>
+<tr>
+  <th>Título</th>
+  <th>Link</th>
+  <th>Ações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pagina 1</td>
+  <td>pag_1</td>
+  <td>Editar | Remover </td>
+</tr>
+<tr>
+  <td>Pagina 2</td>
+  <td>pag_2</td>
+  <td>Editar | Remover </td>
+</tr>
+</tbody>
+</table>
+
+
+5 - 
 
 
 
