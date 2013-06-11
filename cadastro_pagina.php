@@ -10,19 +10,32 @@ if(!isset($_SESSION['logado'])){
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro</title>
- <link href="bootstrap/css/bootstrap.css" rel="stylesheet"> 
+ <link href="bootstrap/css/bootstrap.css" rel="stylesheet">  
  <script src="inc/ckeditor/config.js"></script>
  <script src="inc/ckeditor/ckeditor.js"></script>
-
+ <style>
+     #conteudo{
+         padding-left:20px;
+         padding-right:20px;         
+     }
+     h1 {
+        font-size: 30.5px;
+     }
+     .ckeditor{
+         width: 500px;
+     }
+     
+     
+ </style>
     </head>
     <body>
 <?php require "inc/menuAdm.php"; ?>  
-    
+<div id="conteudo">
 <form action="" method="post">
     
 <fieldset>
 <legend>Cadastro de Página</legend>
-<label>Título</label>
+<label class="meuLabel">Título</label>
 <input name="titulo" type="text" placeholder="Digite algo...">
 
 <label>Link</label>
@@ -35,7 +48,7 @@ if(!isset($_SESSION['logado'])){
 <input name="keys" type="text" placeholder="Digite algo...">
 
 <label>Conteúdo</label>
-<textarea class="ckeditor" cols="300" rows="10" name="conteudo" placeholder="Digite algo...">
+<textarea class="ckeditor"  cols="300" rows="10" name="conteudo" placeholder="Digite algo...">
 </textarea>
 <br />
 <button type="submit" class="btn btn-success btn-large">Enviar</button>
@@ -87,6 +100,6 @@ mysql_close($con);
 
 }
 ?>
-        
+</div>            
     </body>
 </html>
