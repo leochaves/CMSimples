@@ -25,6 +25,9 @@ for ($i = 0; $i < $quantasLinhas; $i++) {
     </a>
 </li>
 <?php } ?>
+    <li><a href="index.php?pagina=contato">
+    Contato
+    </a>
 </ul>
 
   

@@ -1,13 +1,25 @@
 <?php 
 if(isset($_POST['email'],$_POST['senha'])){
-    //var_dump($_POST);
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
     
-    $emailCerto = 'admin@admin.com';
-    $senhaCerta = '0192023a7bbd73250516f069df18b500'; 
+    // inclui arquivo de configuração
+    require_once "./inc/config.php"; 
+    // inclui arquivo com funções
+    require_once "./inc/funcoes.php";
+    $con = conecta(HOST, USER, PASS, DBNAME);
     
-    if(($email == $emailCerto) AND (md5($senha) == $senhaCerta)){
+    // usa funcao que escapa as aspas e caracter especiais
+    $email = mysql_real_escape_string($_POST['email']);
+    $senha = md5($_POST['senha']);// hash (assinatura)
+    
+    $sql = "select * from usuario 
+        where email = '$email' 
+            AND senha = '$senha'"; 
+    
+    // executa o select e armazena o resultado 
+    $rLista = mysql_query($sql, $con);
+    // conta quantos registro tem no resultado
+    $numRows = mysql_num_rows($rLista);
+    if($numRows == 1){
         // echo "Só sucesso";
         session_start();
         $_SESSION['logado'] = true;

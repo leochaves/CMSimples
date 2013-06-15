@@ -1,11 +1,6 @@
 <?php
 // nome: index.php
 // http://...index.php?pagina=minha_pagina
-require_once "./inc/config.php";
-require_once "./inc/funcoes.php";
-
-$con = conecta(HOST, USER, PASS, DBNAME);
-
 
 // pega o valor de pagina via método
 // index.php?pagina=contato
@@ -14,15 +9,35 @@ if (isset($_GET['pagina'])) {
 } else {
     $pagina = 'inicial';
 }
+switch ($pagina){
+    case 'contato':
+        $conteudo = array(
+            'description' => 'Pagina contatos',
+            'keys' => '',
+            'conteudo' => 'contato.php',
+            'titulo' => 'Contato',
+            'file' => true
+        );        
+        break;
+    case 'outraPagina':
+        require 'outraPagina.php';
+        break;
+    default :        
+        require_once "./inc/config.php";
+        require_once "./inc/funcoes.php";
 
-$query = "SELECT * FROM pagina
-WHERE link = '$pagina'";
+        $con = conecta(HOST, USER, PASS, DBNAME);
 
-//echo $query;die;
-//record set
-$rs = mysql_query($query, $con);
 
-$conteudo = mysql_fetch_array($rs);
+        $query = "SELECT * FROM pagina
+        WHERE link = '$pagina'";
+
+        //echo $query;die;
+        //record set
+        $rs = mysql_query($query, $con);
+
+        $conteudo = mysql_fetch_array($rs);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,7 +59,11 @@ $conteudo = mysql_fetch_array($rs);
                 <div class="span10">
                     <h1><?php echo $conteudo['titulo'] ?></h1>       
                     <?php
-                    echo $conteudo['conteudo'];
+                    if(isset($conteudo['file'])){
+                        require $conteudo['conteudo'];
+                    } else {
+                        echo $conteudo['conteudo'];
+                    }
                     ?>
                 </div>
             </div>
