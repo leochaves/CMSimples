@@ -24,6 +24,13 @@ if(isset($_POST['email'],$_POST['senha'])){
         session_start();
         $_SESSION['logado'] = true;
         
+        if(isset($_POST['lembrar'])){
+            date_default_timezone_set('America/Sao_Paulo');
+            $arr = array('login'=>$email,'senha'=>$senha);
+            $str= json_encode($arr); // string
+
+            setcookie('logado', $str, strtotime('+1 year'));
+        }
         // redirect
         header('location:cadastro_pagina.php');die;
     } else {

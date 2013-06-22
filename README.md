@@ -52,11 +52,11 @@ Lógica:
 
 Para casa:
 --------------------
-1 - Incluir CKeditor na textarea do cadatro de página.
+1(ok) - Incluir CKeditor na textarea do cadatro de página.
 
-Baixar versão básica e seguir as instruções do arquivo README.md dentro do zip [http://ckeditor.com/download](http://ckeditor.com/download) 
+Baixar versão standart e seguir as instruções do arquivo README.md dentro do zip [http://ckeditor.com/download](http://ckeditor.com/download) 
 
-2 - Criar uma tabela de usuário e validar o login através dela. 
+2(ok) - Criar uma tabela de usuário e validar o login através dela. 
 
 campos: email,senha,nome
 
@@ -64,11 +64,10 @@ campos: email,senha,nome
 where email = '$email' AND senha = '$senha'"
 se retornar(encontrar o usuário/senha) loga, senão não loga.
 
-3 - Manter o usuário logado com o uso dos cookies.
+3(ok) - Manter o usuário logado com o uso dos cookies. 
+@TODO validar usuário no banco antes de restaurar sessao
 
 4 - Criar uma listagem de páginas e dar acesso apenas para usuários logados. Nome do arquivo: ***lista_paginas.php***
-
-
 <table>
 <thead>
 <tr>
@@ -91,8 +90,30 @@ se retornar(encontrar o usuário/senha) loga, senão não loga.
 </tbody>
 </table>
 
+5 - Criar uma página que recebe um id via método GET e 
+remove o registro do banco ***remove_pagina.php?id=1 or 1=1 ***
 
-5 - 
+ >delete from pagina where id = (int)$_GET['id'];
+    
+ >update pagina set status = 'Inativo' where id = (int)$_GET['id'];
 
 
+
+6 - 5 - Criar uma página que recebe um id via método GET e 
+carregar o formulário com dados do registro para que
+seja possível edição  ***editar_pagina.php?id=1 ***
+    
+UPDATE `pagina`   SET 
+    `titulo` = 'xx',
+    `conteudo` = 'xx .',
+    `link` = 'xx',
+    `description` = 'xx',
+    `keys` = 'xx' 
+    
+    where id = (int)$_GET['id'];
+
+7- Tranferir lógica de validação do usuario na sessao para um arquivo 
+externo que será incluido. 
+
+8 - Criar página de contato e usar classe PHPMailer para enviar o email. 
 

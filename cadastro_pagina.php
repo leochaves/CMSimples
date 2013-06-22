@@ -1,9 +1,31 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['logado'])){
-    header('location:login.php');die;
-}
+/*
+ * 1 - se tiver o cookie e o usuario nao estiver logado:
+ * gravar na sessao que ele esta logado
+ * 2 - se ele não possuir o cookie e nem session logado:
+ * redireciona para login. 
+ */
+if(isset($_COOKIE['logado']) 
+        and !isset($_SESSION['logado'])){
+    /*
+     * Pegar o valor do usuario e senha no cookie
+     * e validar no banco se estão corretos. 
+     * 
+     */
+    $valida = json_decode($_COOKIE['logado'],true);
+    $usuario = $valida['login'];
+    $senha = $valida['senha'];
+    var_dump($usuario,$senha);
+    // ir no banco ... validar 
+    if(true /*se validar*/){
+        $_SESSION['logado'] = true;
+    }
+    
+} elseif(!isset($_SESSION['logado'])){
+    header('location:login.php');die;    
+} 
 ?>
 <!DOCTYPE html>
 <html>

@@ -20,7 +20,7 @@ switch ($pagina){
         );        
         break;
     case 'outraPagina':
-        require 'outraPagina.php';
+        //require 'outraPagina.php';
         break;
     default :        
         require_once "./inc/config.php";
@@ -59,6 +59,7 @@ switch ($pagina){
                 <div class="span10">
                     <h1><?php echo $conteudo['titulo'] ?></h1>       
                     <?php
+                    
                     if(isset($conteudo['file'])){
                         require $conteudo['conteudo'];
                     } else {
